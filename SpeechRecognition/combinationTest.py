@@ -2,72 +2,78 @@ import speech_recognition as sr
 import pyttsx3
 import random
 import webbrowser
+import languages
 
-engine = pyttsx3.init()
-r = sr.Recognizer()
+randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
+randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
+randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
+randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
+
+###############################################################################
+#                                                                             #
+#                             BASE FUNCTIONS                                  #
+#                                                                             #
+###############################################################################
 
 def greeting():
 
-    greetingList = ["Hello", "Hi", "Hey", "How's it going?", "How are you?",\
-                    "What's up", "What's new?", "How's everything", \
-                    "How are things?", "How's Life?", "How's your day?", \
-                    "How's your day going?", "Good to see you!", \
-                    "Nice to see you", "Long time no see", "It's been a while"]
-
-    print(len(greetingList))
-
     with sr.Microphone() as source:
-        print('Speak: ')
+
+        print('Greeting Speak: ')
         audio = r.listen(source)
         text = r.recognize_google(audio)
         greetingTerm = "hello"
         words = text.split()
-        randomGreeting = str(greetingList[random.randint(0,15)]) + "Leo Rose"
         if greetingTerm in words:
+            print("Random Greeting INITIALIZATION")
             engine.say(randomGreeting)
             engine.runAndWait()
         else:
-            print("Error")
+            print("Random Greeting ERROR")
+            engine.say(randomError)
+            engine.runAndWait()
+            greeting()
+
+def request():
+    print("random request INITIALIZATION")
+    engine.say(randomEnquire)
+    engine.runAndWait()
 
 def farewell():
 
-    farewellList = ["bye", "bye bye", "See you later", "See you soon", \
-                    "Talk to you later", "I must be going", "Take it easy"\
-                    "I'm off too", "Goodbye", "Have a good day",\
-                    "Have a nice day", "I'll look forward to our next meeting"\
-                    "Until next time", "Take care", "It was nice talking to you"\
-                    "It was nice seeing you", "Until later", "Peace out",\
-                     "I'm out", "I'm off", ]
-    print(len(farewellList))
-
     with sr.Microphone() as source:
-        print('Speak: ')
+        print('Farewell Speak: ')
         audio = r.listen(source)
         text = r.recognize_google(audio)
-        farewellTerm = "bye"
+        farewellTerm = "nothing"
         words = text.split()
-        randomFarewell = str(farewellList[random.randint(0,15)]) + "Leo Rose"
         if farewellTerm in words:
+            print("Farewell Speak INITIALIZATION")
             engine.say(randomFarewell)
             engine.runAndWait()
         else:
-            print("Error")
+            print("Farewell Speak ERROR")
+            engine.say(randomError)
+            engine.runAndWait()
+            farewell()
 
-def executeCommand():
-    webbrowser.open('https://www.youtube.com/watch?v=0xiB_S7NTUY')
+#def executeCommand():
+#    webbrowser.open('https://www.youtube.com/watch?v=0xiB_S7NTUY')
 
-def request():
-    introOffer = ["What can I help with today?", "What can I do for you?",\
-                  "What will you have me do?"]
-    randomOffer = str(introOffer[random.randint(0,2)])
-    engine.say(randomOffer)
-    engine.runAndWait()
+###############################################################################
+#                                                                             #
+#                            INITIALIZATION                                   #
+#                                                                             #
+###############################################################################
 
-print("Greeting")
+engine = pyttsx3.init()
+r = sr.Recognizer()
+
+engine.say("I am bob. the automated assistant")
+engine.runAndWait()
+
 greeting()
-print("Request")
+
 request()
-print("Execute Command")
-executeCommand()
-print("Farewell")
+
 farewell()

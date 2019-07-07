@@ -1,10 +1,14 @@
-- Assign Speech Recognition to output.
+[x] Assign Speech Recognition to output.
 
-- Create Text to speech as output for speech input enumeration.
+[ ] Create Text to speech as output for speech input enumeration.
 
-- Image detection and training to apply symbolic representation and game
+[ ] Image detection and training to apply symbolic representation and game
   theory storage to encountered items.
 
-- Files for Bob's movement and collision sensors via the Rasperry PI GPIO pins.
+[ ] Facial recognition to determine persons name.
 
--
+[ ] Files for Bob's movement and collision sensors via the Rasperry PI GPIO pins.
+
+[ ] Voice input to take commands and execute them.
+
+[ ] Implement AI hacking subsystem
