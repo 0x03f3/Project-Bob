@@ -4,10 +4,10 @@ import random
 import webbrowser
 import languages
 
-randomGreeting = str(languages.chinese(1)[random.randint(1,len(languages.chinese(1))-1)])
-randomEnquire = str(languages.chinese(2)[random.randint(1,len(languages.chinese(2))-1)])
-randomFarewell = str(languages.chinese(3)[random.randint(1, len(languages.chinese(3))-1)])
-randomError = str(languages.chinese(4)[random.randint(1, len(languages.chinese(4))-1)])
+randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
+randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
+randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
+randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
 
 ###############################################################################
 #                                                                             #
@@ -69,7 +69,7 @@ def farewell():
 engine = pyttsx3.init()
 r = sr.Recognizer()
 
-engine.say("Nǐ hǎo")
+engine.say("I'm Bob, and soon I'll be alive.")
 engine.runAndWait()
 
 greeting()
