@@ -1,13 +1,13 @@
 def english(list):
 
-    greetingList = ["Hello", "Hi", "Hey", "How's it going?", "How are you?", \
-                    "What's up", "What's new?", "How's everything", \
-                    "How are things?", "How's Life?", "How's your day?", \
-                    "How's your day going?", "Good to see you!", \
-                    "Nice to see you", "Long time no see", "It's been a while"]
+    greetingList = ["hello", "hi", "hey", "how's it going", "how are you", \
+                    "what's up", "what's new", "how's everything", \
+                    "how are things", "how's life", "how's your day", \
+                    "how's your day going", "good to see you", \
+                    "nice to see you", "long time no see", "it's been a while"]
 
-    enquireList = ["What can I help with today?", "What can I do for you?", \
-                  "What will you have me do?", "How can I help you?"]
+    enquireList = ["what can I help with today", "what can I do for you", \
+                  "what will you have me do", "how can I help you"]
 
     farewellList = ["bye", "bye bye", "See you later", "See you soon", \
                     "Talk to you later", "I must be going", "Take it easy", \
@@ -19,6 +19,15 @@ def english(list):
     errorHandling = ["Sorry I didn't catch that", "Sorry I wasn't listening", \
                      "Could you repeat that again", "What"]
 
+    yesList = ["yes", "yeah", "sure", "yep", "okay", "totally", "ok", \
+               "alright", "certainly", "definitely", "gladly", "absolutely", \
+               "indeed", "fine", "obviously", "aye"]
+
+    noList = ["nah", "nope", "no", "negative", ]
+
+    subroutineList = ["routine one... Hacking...", "routine two... Smart Home...",\
+                      "routine three.. Time...", "routine four.. Internet..."]
+
     if list == 1:
         return greetingList
     elif list == 2:
@@ -27,6 +36,8 @@ def english(list):
         return farewellList
     elif list == 4:
         return errorHandling
+    elif list == 5:
+        return subroutineList
     else:
         print("English Response ERROR")
 
@@ -79,7 +90,7 @@ def spanish(list):
                     "Hasta la próxima", "Cuídate", "Fue agradable hablar contigo", \
                     "Fue agradable verte", "Hasta más tarde", "Paz fuera"]
 
-    errorHandling = ["Lo siento, no pude captar eso", "Lo siento, no estaba escuchando", /
+    errorHandling = ["Lo siento, no pude captar eso", "Lo siento, no estaba escuchando", \
                      "Podrías repetir eso otra vez", "Qué"]
 
     if list == 1:

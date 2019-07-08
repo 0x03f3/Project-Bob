@@ -1,13 +1,19 @@
 import speech_recognition as sr
 import pyttsx3
 import random
-import webbrowser
 import languages
+
+bob = pyttsx3.init()
+r = sr.Recognizer();
+
+
+#pyttxs3 can't handle lists so this is a workaround for random list array passing
 
 randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
 randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
 randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
 randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
+subroutines = str(languages.english(5))
 
 ###############################################################################
 #                                                                             #
@@ -26,18 +32,51 @@ def greeting():
         words = text.split()
         if greetingTerm in words:
             print("Random Greeting INITIALIZATION")
-            engine.say(randomGreeting)
-            engine.runAndWait()
+            bob.say(randomGreeting)
+            bob.runAndWait()
         else:
             print("Random Greeting ERROR")
-            engine.say(randomError)
-            engine.runAndWait()
+            bob.say(randomError)
+            bob.runAndWait()
             greeting()
 
 def request():
     print("random request INITIALIZATION")
-    engine.say(randomEnquire)
-    engine.runAndWait()
+    bob.say(randomEnquire)
+    bob.say("Would you like to see the available subroutines")
+    bob.runAndWait()
+    with sr.Microphone() as source:
+        print('Subroutines: ')
+        audio = r.listen(source)
+        text = r.recognize_google(audio)
+        response = "yes"
+        words = text.split()
+        print(response)
+        if response in words:
+            print("Listing Subroutines: ")
+            bob.say("The following, Subroutines Are... ")
+            bob.say(subroutines)
+            bob.runAndWait()
+            bob.say("would you, like to access any, of these subroutines")
+            print("would you, like to access any, of these subroutines")
+            audio = r.listen(source)
+            text = r.recognize_google(audio)
+            response = "no"
+            words = text.split()
+            print(response)
+            if response in words:
+                bob.say("okay...")
+                farewell()
+            else:
+                pass
+
+
+        else:
+            print("Subroutine ERROR")
+            bob.say(subroutines)
+            bob.runAndWait()
+            request()
+
 
 def farewell():
 
@@ -45,20 +84,17 @@ def farewell():
         print('Farewell Speak: ')
         audio = r.listen(source)
         text = r.recognize_google(audio)
-        farewellTerm = "nothing"
+        farewellTerm = "goodbye"
         words = text.split()
         if farewellTerm in words:
             print("Farewell Speak INITIALIZATION")
-            engine.say(randomFarewell)
-            engine.runAndWait()
+            bob.say(randomFarewell)
+            bob.runAndWait()
         else:
             print("Farewell Speak ERROR")
-            engine.say(randomError)
-            engine.runAndWait()
+            bob.say(randomError)
+            bob.runAndWait()
             farewell()
-
-#def executeCommand():
-#    webbrowser.open('https://www.youtube.com/watch?v=0xiB_S7NTUY')
 
 ###############################################################################
 #                                                                             #
@@ -66,11 +102,8 @@ def farewell():
 #                                                                             #
 ###############################################################################
 
-engine = pyttsx3.init()
-r = sr.Recognizer()
-
-engine.say("I'm Bob, and soon I'll be alive.")
-engine.runAndWait()
+bob.say("I, am Bob... And soon, I, will be self aware.. ")
+bob.runAndWait()
 
 greeting()
 
