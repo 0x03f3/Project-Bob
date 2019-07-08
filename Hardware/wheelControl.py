@@ -21,7 +21,7 @@ def reverse(tf):
 
     init()
     gpio.output (7, False)
-    gpio.output (11, True)
+    gpio.output (11, False)
     time.sleep(tf)
     gpio.cleanup()
 
