@@ -4,13 +4,13 @@
 
 [x] Files for Bob's movement and collision sensors via the Rasperry PI GPIO pins.
 
-[ ] Voice input to take commands and execute them.
+[x] Voice input to take commands and execute them.
 
 [ ] Implement AI hacking subsystem
 
 [ ] Real time language translation and language detection
 
-[ ] Edit all of the subsytem function to take inputs triggers.
+[ ] Edit all of the subsytem function to take vocal triggers.
 
 [ ] Image detection and training to apply symbolic representation and game
     theory storage to encountered items.
@@ -18,3 +18,5 @@
 [ ] Facial recognition to determine persons name.
 
 [ ] Include error handling within subsytem functions to meet null conditions
+
+[ ] Need physical seperatio of Facial Recognition and rest of program.

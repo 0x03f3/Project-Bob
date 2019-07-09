@@ -7,8 +7,8 @@ import speech_recognition as sr
 #To alter the device change Microphone() to Microphone(device_index=<indexNum>)
 
 #Code:
-#for index, name in enumerate(sr.Microphone.list_microphone_names()):
-#    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
+for index, name in enumerate(sr.Microphone.list_microphone_names()):
+    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
 
 #Set Recognizer()
 r = sr.Recognizer()
