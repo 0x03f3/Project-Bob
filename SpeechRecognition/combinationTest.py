@@ -20,81 +20,39 @@ subroutines = str(languages.english(5))
 #                             BASE FUNCTIONS                                  #
 #                                                                             #
 ###############################################################################
+listTest = ["hello"]
 
-def greeting():
+print(*listTest)
 
-    with sr.Microphone() as source:
+if str(*listTest) in languages.english(1):
+    print("True")
+else:
+    print("False")
 
-        print('Greeting Speak: ')
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        greetingTerm = "hello"
-        words = text.split()
-        if greetingTerm in words:
-            print("Random Greeting INITIALIZATION")
-            bob.say(randomGreeting)
-            bob.runAndWait()
-        else:
-            print("Random Greeting ERROR")
-            bob.say(randomError)
-            bob.runAndWait()
-            greeting()
+def listening():
 
-def request():
-    print("random request INITIALIZATION")
-    bob.say(randomEnquire)
-    bob.say("Would you like to see the available subroutines")
-    bob.runAndWait()
-    with sr.Microphone() as source:
-        print('Subroutines: ')
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        response = "yes"
-        words = text.split()
-        print(response)
-        if response in words:
-            print("Listing Subroutines: ")
-            bob.say("The following, Subroutines Are... ")
-            bob.say(subroutines)
-            bob.runAndWait()
-            bob.say("would you, like to access any, of these subroutines")
-            print("would you, like to access any, of these subroutines")
+    while True:
+#Assign default microphone
+        with sr.Microphone() as source:
+            print('Listening: ')
+            # Capture the audio and translate it into text
             audio = r.listen(source)
             text = r.recognize_google(audio)
-            response = "no"
+            # Split the text into an array
             words = text.split()
-            print(response)
-            if response in words:
-                bob.say("okay...")
-                farewell()
+            # take the text and check it against the list of greetings
+            if str(*words) in languages.english(1):
+                # If a greeting is detected bob will respond in kind
+                bob.say(randomGreeting)
+                bob.runAndWait()
+            elif str(*words) in languages.english(3):
+                # If a farewell is detected bob will respond in kind
+                bob.say(randomFarewell)
+                bob.runAndWait()
+                break
             else:
-                pass
-
-
-        else:
-            print("Subroutine ERROR")
-            bob.say(subroutines)
-            bob.runAndWait()
-            request()
-
-
-def farewell():
-
-    with sr.Microphone() as source:
-        print('Farewell Speak: ')
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        farewellTerm = "goodbye"
-        words = text.split()
-        if farewellTerm in words:
-            print("Farewell Speak INITIALIZATION")
-            bob.say(randomFarewell)
-            bob.runAndWait()
-        else:
-            print("Farewell Speak ERROR")
-            bob.say(randomError)
-            bob.runAndWait()
-            farewell()
+                #You dun goofed
+                bob.say(randomError)
 
 ###############################################################################
 #                                                                             #
@@ -104,9 +62,4 @@ def farewell():
 
 bob.say("I, am Bob... And soon, I, will be self aware.. ")
 bob.runAndWait()
-
-greeting()
-
-request()
-
-farewell()
+listening()
