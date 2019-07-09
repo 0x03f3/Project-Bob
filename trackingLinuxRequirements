@@ -27,3 +27,6 @@ sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
           sudo apt install libatlas-base-dev gfortran
                             (OpenCV)
                 sudo apt install python3-opencv
+
+                          Translation:
+                  sudo pip3 install googletrans
