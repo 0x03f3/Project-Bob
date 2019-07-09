@@ -9,12 +9,12 @@ def english(list):
     enquireList = ["what can I help with today", "what can I do for you", \
                   "what will you have me do", "how can I help you"]
 
-    farewellList = ["bye", "bye bye", "See you later", "See you soon", \
-                    "Talk to you later", "I must be going", "Take it easy", \
-                    "I'm off too", "Goodbye", "Have a good day", \
-                    "Have a nice day", "I'll look forward to our next meeting", \
-                    "Until next time", "Take care", "It was nice talking to you", \
-                    "It was nice seeing you", "Until later", "Peace out"]
+    farewellList = ["bye", "bye bye", "see you later", "see you soon", \
+                    "talk to you later", "i must be going", "take it easy", \
+                    "i'm off too", "goodbye", "have a good day", \
+                    "have a nice day", "i'll look forward to our next meeting", \
+                    "until next time", "take care", "it was nice talking to you", \
+                    "it was nice seeing you", "until later", "peace out"]
 
     errorHandling = ["Sorry I didn't catch that", "Sorry I wasn't listening", \
                      "Could you repeat that again", "What"]
@@ -28,6 +28,8 @@ def english(list):
     subroutineList = ["routine one... Hacking...", "routine two... Smart Home...",\
                       "routine three.. Time...", "routine four.. Internet..."]
 
+    commandList = ["list subroutines"]
+
     if list == 1:
         return greetingList
     elif list == 2:
@@ -38,6 +40,8 @@ def english(list):
         return errorHandling
     elif list == 5:
         return subroutineList
+    elif list == 6:
+        return commandList
     else:
         print("English Response ERROR")
 
