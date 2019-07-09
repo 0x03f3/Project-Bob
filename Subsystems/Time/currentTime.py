@@ -19,15 +19,10 @@ getTime("time")
 
 def getDate(input):
 
-<<<<<<< HEAD
-    #List of months to make it sound normal when bob speaks
-    monthList = [" January ", " Feburary ", " March ", " April ", " May ",\
-=======
 #List of months to make it sound normal when bob speaks
-monthList = [" January ", " Feburary ", " March ", " April ", " May ",\
->>>>>>> 9b291b4b959d659d0ccc3677eee14f4270ef3e87
-             " June ", " July ", " August ", " September ", " October ",\
-             " November", " December "]
+    monthList = [" January ", " Feburary ", " March ", " April ", " May ",\
+                 " June ", " July ", " August ", " September ", " October ",\
+                 " November", " December "]
 
 
     if input == "date":
