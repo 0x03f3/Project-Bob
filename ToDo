@@ -6,17 +6,19 @@
 
 [x] Voice input to take commands and execute them.
 
-[ ] Implement AI hacking subsystem
+[x] Real time language translation
 
-[ ] Real time language translation and language detection
+[x] Include error handling within subsytem functions to meet null conditions
 
-[ ] Edit all of the subsytem function to take vocal triggers.
+[x] Edit all of the subsytem function to take vocal triggers.
+
+[ ] Implement AI hacking subsystem (Port scan has been implemented)
+
+[ ] language detection
 
 [ ] Image detection and training to apply symbolic representation and game
-    theory storage to encountered items.
+    theory storage to encountered items. -- Implement database
 
 [ ] Facial recognition to determine persons name.
 
-[ ] Include error handling within subsytem functions to meet null conditions
-
-[ ] Need physical seperatio of Facial Recognition and rest of program.
+[ ] Need physical seperation of Facial Recognition and rest of program.
