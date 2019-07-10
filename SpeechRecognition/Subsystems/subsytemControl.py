@@ -8,8 +8,8 @@ def controlTest(vocalInput):
     # Vocal Translation Control
     if vocalInput == "translation":
         input = "This is a manually assigned test"
-        language = "RU"
-        return translation.translate(input, language)
+        language = "DE"
+        print(translation.translate(input, language))
 
     # Vocal time request control
     elif vocalInput == "current time":
