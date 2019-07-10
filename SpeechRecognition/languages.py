@@ -18,8 +18,9 @@ def english(list):
                     "until next time", "take care", "it was nice talking to you", \
                     "it was nice seeing you", "until later", "peace out"]
 
-    errorHandling = ["Sorry I didn't catch that", "Sorry I wasn't listening", \
-                     "Could you repeat that again", "What"]
+    errorHandling = ["sorry I didn't catch that", "sorry I wasn't listening", \
+                     "could you repeat that again", "what did you say", \
+                     "can you repeat that please"]
 
     yesList = ["yes", "yeah", "sure", "yep", "okay", "totally", "ok", \
                "alright", "certainly", "definitely", "gladly", "absolutely", \

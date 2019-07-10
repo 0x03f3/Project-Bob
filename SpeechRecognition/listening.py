@@ -4,7 +4,7 @@ import socket
 import speech_recognition as sr
 from SpeechRecognition import languages
 from SpeechRecognition.Subsystems import subsytemControl
-from SpeechRecognition.Subsystems.Translation import translation
+#from SpeechRecognition.Subsystems.Translation import translation
 
 #pyttxs3 can't handle lists so this is a workaround for random list array passing
 randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
@@ -14,7 +14,7 @@ randomError = str(languages.english(4)[random.randint(1, len(languages.english(4
 subroutines = str(languages.english(5))
 commandList = str(languages.english(6))
 
-#### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS.
+#### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS. ###
 bob = pyttsx3.init()
 
 def listen():
@@ -53,7 +53,7 @@ def thinking(text):
     # Farewell
     elif str(text) in languages.english(3):
         # If a farewell is detected bob will respond in kind
-        bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
+        bob.say(str(languages.english(3)[random.randint(1, len(languages.english(3))-1)]))
         bob.runAndWait()
         # Exit program
 
@@ -67,58 +67,15 @@ def thinking(text):
         # THIS NEEDS TO BE INDEPENDENT PER COMMAND!
         # CONSIDER IMPLEMENTING A SEPERATE FUNCTION CALL
         # TO STOP THE CONSTANT IF PROCESSING.
-
-        #bob.say(subroutines)
         bob.say("Which subroutine would you like to access")
         bob.runAndWait()
-#        with sr.Microphone() as source:
-#            print('Listening: ')
-#            # Capture the audio and translate it into text
-#            audio = r.listen(source)
-#            subroutine = r.recognize_google(audio)
-        test = listen()
-        if test == "translation":
-            bob.say("what would you like translated")
-            bob.runAndWait()
-            print("Listening for trnslation text")
-            input = listen()
-            bob.say("What language would you like to translate that to")
-            bob.runAndWait()
-            print("Listening for language")
-            language = listen()
-            if language == "german":
-                language = "DE"
-            elif language == "spanish":
-                language = "ES"
-            elif language == "polish":
-                language = "PL"
-            elif language == "chinese":
-                language = "ZH-CN"
-            elif language == "hindi":
-                language = "HI"
-            elif language == "arabic":
-                language = "AR"
-            elif language == "portuguese":
-                language = "PT"
-            elif language == "russian":
-                language = "RU"
-            elif language == "japanese":
-                language = "JA"
-            elif language == "korean":
-                language = "KO"
-            elif language == "french":
-                language = "FR"
-            else:
-                bob.say("Could not detect selected language")
-            bob.say(translation.translate(input, language))
-            bob.runAndWait()
-        else:
-            subroutineReturn = subsytemControl.controlTest(test)
-            print(subroutineReturn)
-            bob.say(str(subroutineReturn))
-            bob.runAndWait()
-            # Debug print
-            print("Commands Exit")
+        input = listen()
+        subroutineReturn = subsytemControl.controlTest(input)
+        print(subroutineReturn)
+        bob.say(str(subroutineReturn))
+        bob.runAndWait()
+        # Debug print
+        print("Commands Exit")
 
     else:
 
