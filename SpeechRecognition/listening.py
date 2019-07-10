@@ -1,7 +1,9 @@
 import random
 import pyttsx3
-import speech_recognition as sr
+import socket
 from SpeechRecognition import languages
+import speech_recognition as sr
+from SpeechRecognition.Subsystems import subsytemControl
 
 bob = pyttsx3.init()
 r = sr.Recognizer();
@@ -25,6 +27,8 @@ def listen():
         text = r.recognize_google(audio)
         print(text)
         # take the text and check it against the list of greetings
+
+        # Greeting
         if str(text) in languages.english(1):
             # If a greeting is detected bob will respond in kind
             bob.say(str(languages.english(1)[random.randint(1,len(languages.english(1))-1)]))
@@ -32,14 +36,18 @@ def listen():
 
             # Debug print
             print("Greeting")
+
+        # Farewell
         elif str(text) in languages.english(3):
             # If a farewell is detected bob will respond in kind
             bob.say(randomFarewell)
             bob.runAndWait()
+            # Exit program
 
             # Debug print
             print("Farewell")
 
+        # Command
         elif str(text) in languages.english(6):
             # If command is detected then respond in kind
 
@@ -47,9 +55,17 @@ def listen():
             # CONSIDER IMPLEMENTING A SEPERATE FUNCTION CALL
             # TO STOP THE CONSTANT IF PROCESSING.
 
-            bob.say(subroutines)
+            #bob.say(subroutines)
             bob.say("Which subroutine would you like to access")
             bob.runAndWait()
+            with sr.Microphone() as source:
+                print('Listening: ')
+                # Capture the audio and translate it into text
+                audio = r.listen(source)
+                text = r.recognize_google(audio)
+                print(text)
+                test = subsytemControl.controlTest(text)
+                bob.say(test)
             # Debug print
             print("Commands")
 
@@ -58,3 +74,4 @@ def listen():
             #You dun goofed
             bob.say(randomError)
             bob.runAndWait()
+listen()

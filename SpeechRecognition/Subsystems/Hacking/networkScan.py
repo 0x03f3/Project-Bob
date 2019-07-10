@@ -1,5 +1,5 @@
 #Scan for all smart appliances on the current LAN
-import socket
+from socket import *
 import time
 
 #Function for scanning for ports on supplied addresses

@@ -21,4 +21,4 @@ def openURL(input):
     webbrowser.open(website)
 
 # Works.
-openURL("google")
+#openURL("google")

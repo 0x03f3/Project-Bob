@@ -25,4 +25,4 @@ def languageDetection(input):
     # Print out the result for readability, remember to change to return.
     print(translator.detect(input))
 
-languageDetection("Это тест")
+#languageDetection("Это тест")
