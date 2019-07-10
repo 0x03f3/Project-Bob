@@ -9,12 +9,12 @@ from SpeechRecognition.Subsystems import subsytemControl
 #randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
 #randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
 #randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
-#randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
+randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
 #subroutines = str(languages.english(5))
 #commandList = str(languages.english(6))
 
 #### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS.
-
+bob = pyttsx3.init()
 
 def listen():
 
@@ -22,17 +22,24 @@ def listen():
     # while True:
     #Assign default microphone
     with sr.Microphone() as source:
-        print('Listening: ')
-        # Capture the audio and translate it into text
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        print(text)
-        return text
+        try:
+            print('Listening: ')
+            # Capture the audio and translate it into text
+            audio = r.listen(source)
+            text = r.recognize_google(audio)
+            return text
+        except sr.UnknownValueError:
+            bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
+            bob.runAndWait()
+            listen()
+        except sr.RequestError:
+            bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
+            bob.runAndWait()
+            listen()
         # take the text and check it against the list of greetings
 
 def thinking(text):
     #initialize bob inside function
-    bob = pyttsx3.init()
     # Greeting
     if str(text) in languages.english(1):
         # If a greeting is detected bob will respond in kind
@@ -63,20 +70,20 @@ def thinking(text):
         #bob.say(subroutines)
         bob.say("Which subroutine would you like to access")
         bob.runAndWait()
-        with sr.Microphone() as source:
-            print('Listening: ')
-            # Capture the audio and translate it into text
-            audio = r.listen(source)
-            subroutine = r.recognize_google(audio)
-            print(subroutine)
-            subroutineReturn = subsytemControl.controlTest(subroutine)
-            bob.say(str(subroutineReturn))
-            bob.runAndWait()
+#        with sr.Microphone() as source:
+#            print('Listening: ')
+#            # Capture the audio and translate it into text
+#            audio = r.listen(source)
+#            subroutine = r.recognize_google(audio)
+        subroutineReturn = subsytemControl.controlTest(listen())
+        print(subroutineReturn)
+        bob.say(str(subroutineReturn))
+        bob.runAndWait()
         # Debug print
         print("Commands Exit")
 
     else:
 
         #You dun goofed
-        bob.say(randomError)
+        bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
         bob.runAndWait()

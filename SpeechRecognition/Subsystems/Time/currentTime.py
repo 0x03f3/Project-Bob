@@ -6,7 +6,7 @@ def getTime():
     # Assign datetime to time
     time = datetime.datetime.now()
     #print out the time format for testing, remember to assign return
-    print ("The current time is " + time.strftime("%H:%M"))
+    return "The current time is " + time.strftime("%H:%M")
 
 def getDate():
 
@@ -21,4 +21,4 @@ def getDate():
     month = monthList[int(date.strftime("%m"))-1]
 
     # As usual remember to
-    print (date.strftime("The date is the %dth of" + month + "%Y"))
+    return date.strftime("The date is the %dth of" + month + "%Y")

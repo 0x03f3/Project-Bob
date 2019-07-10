@@ -10,12 +10,12 @@ def portScan(ipAddress):
     print ('Starting scan on host: ', target)
 
     startTime = time.time()
-    for i in range(1, 65535):
+    for i in range(1, 1024):
         s = socket(AF_INET, SOCK_STREAM)
 
         conn = s.connect_ex((target, i))
         if(conn == 0) :
-            print ('Port %d: OPEN' % (i,))
+            return 'Port %d: OPEN' % (i,)
         s.close()
 
     print('Time taken:', time.time() - startTime)
