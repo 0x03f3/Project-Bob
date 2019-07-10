@@ -88,6 +88,28 @@ def thinking(text):
             language = listen()
             if language == "german":
                 language = "DE"
+            elif language == "spanish":
+                language = "ES"
+            elif language == "polish":
+                language = "PL"
+            elif language == "chinese":
+                language = "ZH-CN"
+            elif language == "hindi":
+                language = "HI"
+            elif language == "arabic":
+                language = "AR"
+            elif language == "portuguese":
+                language = "PT"
+            elif language == "russian":
+                language = "RU"
+            elif language == "japanese":
+                language = "JA"
+            elif language == "korean":
+                language = "KO"
+            elif language == "french":
+                language = "FR"
+            else:
+                bob.say("Could not detect selected language")
             bob.say(translation.translate(input, language))
             bob.runAndWait()
         else:
