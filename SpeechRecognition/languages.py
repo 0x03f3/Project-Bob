@@ -30,7 +30,7 @@ def english(list):
     subroutineList = ["routine one... Hacking...", "routine two... Smart Home...",\
                       "routine three.. Time...", "routine four.. Internet..."]
 
-    commandList = ["subroutines", "subroutine"]
+    commandList = ["subroutines", "subroutine", "access subroutine", "access subroutines"]
 
     if list == 1:
         return greetingList

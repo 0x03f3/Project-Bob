@@ -4,14 +4,15 @@ import socket
 import speech_recognition as sr
 from SpeechRecognition import languages
 from SpeechRecognition.Subsystems import subsytemControl
+from SpeechRecognition.Subsystems.Translation import translation
 
 #pyttxs3 can't handle lists so this is a workaround for random list array passing
-#randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
-#randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
-#randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
+randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
+randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
+randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
 randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
-#subroutines = str(languages.english(5))
-#commandList = str(languages.english(6))
+subroutines = str(languages.english(5))
+commandList = str(languages.english(6))
 
 #### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS.
 bob = pyttsx3.init()
@@ -52,7 +53,7 @@ def thinking(text):
     # Farewell
     elif str(text) in languages.english(3):
         # If a farewell is detected bob will respond in kind
-        bob.say(randomFarewell)
+        bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
         bob.runAndWait()
         # Exit program
 
@@ -75,12 +76,27 @@ def thinking(text):
 #            # Capture the audio and translate it into text
 #            audio = r.listen(source)
 #            subroutine = r.recognize_google(audio)
-        subroutineReturn = subsytemControl.controlTest(listen())
-        print(subroutineReturn)
-        bob.say(str(subroutineReturn))
-        bob.runAndWait()
-        # Debug print
-        print("Commands Exit")
+        test = listen()
+        if test == "translation":
+            bob.say("what would you like translated")
+            bob.runAndWait()
+            print("Listening for trnslation text")
+            input = listen()
+            bob.say("What language would you like to translate that to")
+            bob.runAndWait()
+            print("Listening for language")
+            language = listen()
+            if language == "german":
+                language = "DE"
+            bob.say(translation.translate(input, language))
+            bob.runAndWait()
+        else:
+            subroutineReturn = subsytemControl.controlTest(test)
+            print(subroutineReturn)
+            bob.say(str(subroutineReturn))
+            bob.runAndWait()
+            # Debug print
+            print("Commands Exit")
 
     else:
 

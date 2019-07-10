@@ -7,14 +7,14 @@ currentTime.getTime()
 
 def controlTest(vocalInput):
 
-    # Vocal Translation Control
-    if vocalInput == "translation":
-        input = "This is a manually assigned test"
-        language = "DE"
-        print(translation.translate(input, language))
+#    # Vocal Translation Control
+#    if vocalInput == "translation":
+#        input = "This is a joke."
+#        language = "DE"
+#        return translation.translate(input, language)
 
     # Vocal time request control
-    elif vocalInput == "current time":
+    if vocalInput == "current time":
         return currentTime.getTime()
 
     # Vocal date request control
@@ -23,5 +23,5 @@ def controlTest(vocalInput):
 
     # Vocal network scan request
     elif vocalInput == "network scan":
-        print("Running Network Scan")
+        print("Running Network Scan, please wait")
         return networkScan.portScan("192.168.0.1")

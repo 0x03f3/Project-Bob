@@ -6,18 +6,19 @@ import time
 
 def portScan(ipAddress):
 
+    portList = []
     target = gethostbyname(ipAddress)
     print ('Starting scan on host: ', target)
 
     startTime = time.time()
-    for i in range(1, 1024):
+    for i in range(1, 100):
         s = socket(AF_INET, SOCK_STREAM)
 
         conn = s.connect_ex((target, i))
         if(conn == 0) :
-            return 'Port %d: OPEN' % (i,)
+            portList.append('Port %d: OPEN' % (i,))
         s.close()
-
+    return portList
     print('Time taken:', time.time() - startTime)
 
 #Works!
