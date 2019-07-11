@@ -9,7 +9,7 @@ def translate(input, language):
     # Assign Translator() to variable
     translator = Translator()
 
-    # Print out the result.
+    # Only want to return the direct translation within the
     test = str(translator.translate(input, dest=language))
     test2 = test.split(",")
     test3 = str(test2[2])

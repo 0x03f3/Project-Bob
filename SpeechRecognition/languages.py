@@ -26,10 +26,9 @@ def english(list):
                "alright", "certainly", "definitely", "gladly", "absolutely", \
                "indeed", "fine", "obviously", "aye"]
 
-    noList = ["nah", "nope", "no", "negative", ]
+    noList = ["nah", "nope", "no", "negative", "no thanks", "no thank you", "never"]
 
-    subroutineList = ["routine one... Hacking...", "routine two... Smart Home...",\
-                      "routine three.. Time...", "routine four.. Internet..."]
+    subroutineList = ["translation", "get time", "get date", "port scan"]
 
     commandList = ["subroutines", "subroutine", "access subroutine", "access subroutines"]
 
@@ -45,6 +44,10 @@ def english(list):
         return subroutineList
     elif list == 6:
         return commandList
+    elif list == 7:
+        return yesList
+    elif list == 8:
+        return noList
     else:
         print("English Response ERROR")
 

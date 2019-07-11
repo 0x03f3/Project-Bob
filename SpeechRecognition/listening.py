@@ -62,11 +62,17 @@ def thinking(text):
 
     # Command
     elif str(text) in languages.english(6):
-        # If command is detected then respond in kind
 
-        # THIS NEEDS TO BE INDEPENDENT PER COMMAND!
-        # CONSIDER IMPLEMENTING A SEPERATE FUNCTION CALL
-        # TO STOP THE CONSTANT IF PROCESSING.
+        bob.say("Would you like to list all subroutines")
+        bob.runAndWait()
+        affirmation = listen()
+        if str(affirmation) in languages.english(7):
+            bob.say(str(languages.english(5)))
+            bob.runAndWait()
+        elif str(affirmation in languages.english(8)):
+            bob.say("Okay")
+            bob.runAndWait()
+        # Add
         bob.say("Which subroutine would you like to access")
         bob.runAndWait()
         input = listen()
@@ -74,6 +80,7 @@ def thinking(text):
         print(subroutineReturn)
         bob.say(str(subroutineReturn))
         bob.runAndWait()
+
         # Debug print
         print("Commands Exit")
 

@@ -2,15 +2,8 @@ from SpeechRecognition.Subsystems.Hacking import networkScan
 from SpeechRecognition.Subsystems.Internet import browser
 from SpeechRecognition.Subsystems.Time import currentTime
 from SpeechRecognition.Subsystems.Translation import translation
-#import pyttsx3
-#import speech_recognition as sr
 from .. import languages
 from .. import listening
-#bob = pyttsx3.init()
-
-#currentTime.getTime()
-
-
 
 def controlTest(vocalInput):
 
@@ -45,17 +38,17 @@ def controlTest(vocalInput):
         return translation.translate(input, language)
 
     # Vocal time request control
-    elif vocalInput == "current time":
+    elif vocalInput == "current time" or vocalInput == "get time":
         # Function return for bob
         return currentTime.getTime()
 
     # Vocal date request control
-    elif vocalInput == "current date":
+    elif vocalInput == "current date" or vocalInput == "get date":
         # Function return for Bob
         return currentTime.getDate()
 
     # Vocal network scan request
-    elif vocalInput == "network scan":
+    elif vocalInput == "port scan":
         # Inform user that network scan is in progress
         listening.bob.say("Running Network Scan, please wait")
         listening.bob.runAndWait()
