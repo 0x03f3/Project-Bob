@@ -55,7 +55,7 @@ This functionallity is planning on being automated by detecting the users voice 
 
 For a visual example of him in action please see the potato quality video here: 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=SO97TJRWmdA
 " target="_blank"><img src="http://img.youtube.com/vi/SO97TJRWmdA/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
