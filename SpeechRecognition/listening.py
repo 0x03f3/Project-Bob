@@ -55,10 +55,10 @@ def thinking(text):
         # If a farewell is detected bob will respond in kind
         bob.say(str(languages.english(3)[random.randint(1, len(languages.english(3))-1)]))
         bob.runAndWait()
-        # Exit program
-
         # Debug print
         print("Farewell")
+        # Exit program
+        exit()
 
     # Command
     elif str(text) in languages.english(6):

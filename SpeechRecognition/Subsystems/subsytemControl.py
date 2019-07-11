@@ -2,13 +2,13 @@ from SpeechRecognition.Subsystems.Hacking import networkScan
 from SpeechRecognition.Subsystems.Internet import browser
 from SpeechRecognition.Subsystems.Time import currentTime
 from SpeechRecognition.Subsystems.Translation import translation
-import pyttsx3
-import speech_recognition as sr
+#import pyttsx3
+#import speech_recognition as sr
 from .. import languages
 from .. import listening
-bob = pyttsx3.init()
+#bob = pyttsx3.init()
 
-currentTime.getTime()
+#currentTime.getTime()
 
 
 
@@ -17,53 +17,47 @@ def controlTest(vocalInput):
     if vocalInput == "translation":
 
         # Take user input for translation
-        bob.say("what would you like translated")
-        bob.runAndWait()
+        listening.bob.say("what would you like translated")
+        listening.bob.runAndWait()
         print("Listening for translation text")
         input = listening.listen()
 
-        # Take user input for languagae to translate to.
-        bob.say("What language would you like to translate that to")
-        bob.runAndWait()
+        # Take user input for which language to translate to.
+        listening.bob.say("What language would you like to translate that to")
+        listening.bob.runAndWait()
         print("Listening for language")
         language = listening.listen()
 
-        #Assign selected language for traslation function
-        #PLEASE FIX THIS MONSTROSITY!
-        if language == "german":
-            language = "DE"
-        elif language == "spanish":
-            language = "ES"
-        elif language == "polish":
-            language = "PL"
-        elif language == "chinese":
-            language = "ZH-CN"
-        elif language == "hindi":
-            language = "HI"
-        elif language == "arabic":
-            language = "AR"
-        elif language == "portuguese":
-            language = "PT"
-        elif language == "russian":
-            language = "RU"
-        elif language == "japanese":
-            language = "JA"
-        elif language == "korean":
-            language = "KO"
-        elif language == "french":
-            language = "FR"
-        #Execute translation and wait for return response.
+        # Fix for the if column using index() position
+        # Languages must be entered in capitalized format.
+        languageList = ["English", "German", "Spanish", "Polish", "Hindi"\
+                        "Arabic", "Portugese", "Russian", "Japanese", "Korean", \
+                        "French"]
+
+        # Nominatim list for translate() function assignement.
+        nominatimList = ["EN", "DE", "ES", "PL", "HI", "AR", "PT", "RU", \
+                         "JA", "KO", "FR"]
+
+        # Assign selected language as it's Nominatim
+        language = nominatimList[int(languageList.index(language))]
+
+        #function return for Bob
         return translation.translate(input, language)
 
     # Vocal time request control
     elif vocalInput == "current time":
+        # Function return for bob
         return currentTime.getTime()
 
     # Vocal date request control
     elif vocalInput == "current date":
+        # Function return for Bob
         return currentTime.getDate()
 
     # Vocal network scan request
     elif vocalInput == "network scan":
-        print("Running Network Scan, please wait")
+        # Inform user that network scan is in progress
+        listening.bob.say("Running Network Scan, please wait")
+        listening.bob.runAndWait()
+        # Function return for Bob
         return networkScan.portScan("192.168.0.1")
