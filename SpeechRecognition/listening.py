@@ -4,15 +4,14 @@ import socket
 import speech_recognition as sr
 from SpeechRecognition import languages
 from SpeechRecognition.Subsystems import subsytemControl
-#from SpeechRecognition.Subsystems.Translation import translation
 
 #pyttxs3 can't handle lists so this is a workaround for random list array passing
-randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
-randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
-randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
-randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
-subroutines = str(languages.english(5))
-commandList = str(languages.english(6))
+#randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
+#randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
+#randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
+#randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
+#subroutines = str(languages.english(5))
+#commandList = str(languages.english(6))
 
 #### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS. ###
 bob = pyttsx3.init()
