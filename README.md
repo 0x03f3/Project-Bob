@@ -51,4 +51,11 @@ bob.say(str(languages.german(4)[random.randint(1, len(languages.german(4))-1)]))
 ```
 This functionallity is planning on being automated by detecting the users voice inputs and determining their language at startup.
 
-### This is still in development and not yet a finished development, he is bob, and soon he will be self aware :D
+### This is still in development and not yet a finished development, he is bob, and soon he will be self aware!
+
+For a visual example of him in action please see the potato quality video here: 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/SO97TJRWmdA/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
