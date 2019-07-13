@@ -8,14 +8,26 @@ def translate(input, language):
 
     # Assign Translator() to variable
     translator = Translator()
+    # Print Debug
+    print(str(translator.translate(input, dest=language)))
 
+
+
+
+
+
+
+
+
+    # Assign first split
+    #Output = str(translator.translate(input, dest=language)).split(",")
+    # Print Debug
+    #print(Output)
+    #translation = str(Output[2]).split("=")
+    # Print Debug
+    #print(translation)
     # Only want to return the direct translation within the
-    test = str(translator.translate(input, dest=language))
-    test2 = test.split(",")
-    test3 = str(test2[2])
-    test4 = test3.split("=")
-    return str(test4[1])
-    # Only want to return the direct translation within the
+    #print(str(translation[1]))
 
 #Function to take text input and detect the language being passed.
 def languageDetection(input):
@@ -26,4 +38,4 @@ def languageDetection(input):
     return translator.detect(input)
 
 #languageDetection("Это тест")
-translate("hello", "DE")
+#translate("hello my name is bob", "DE")

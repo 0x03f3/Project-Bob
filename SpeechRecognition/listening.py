@@ -5,16 +5,14 @@ import speech_recognition as sr
 from SpeechRecognition import languages
 from SpeechRecognition.Subsystems import subsytemControl
 
-#pyttxs3 can't handle lists so this is a workaround for random list array passing
-#randomGreeting = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
-#randomEnquire = str(languages.english(2)[random.randint(1,len(languages.english(2))-1)])
-#randomFarewell = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
-#randomError = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
-#subroutines = str(languages.english(5))
-#commandList = str(languages.english(6))
 
 #### EVENTUALLY REDUCE STATEMENT TO EXTERNAL PROCESSING CALLS. ###
 bob = pyttsx3.init()
+
+def log(text, response, placement):
+    errorOutput = open("vocalLog.txt","a+")
+    errorOutput.write( "User: " + text + "\n" + "Bob " + placement + ": " + response + "\n\n")
+    errorOutput.close()
 
 def listen():
 
@@ -42,20 +40,25 @@ def thinking(text):
     #initialize bob inside function
     # Greeting
     if str(text) in languages.english(1):
+        # Assign responce for log()
+        response = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
         # If a greeting is detected bob will respond in kind
-        bob.say(str(languages.english(1)[random.randint(1,len(languages.english(1))-1)]))
+        bob.say(response)
         bob.runAndWait()
-
+        # Log vocal input for learning function
+        log(text, response, "Greeting")
         # Debug print
         print("Greeting")
 
     # Farewell
     elif str(text) in languages.english(3):
+        # Assign responce for log()
+        response = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
         # If a farewell is detected bob will respond in kind
-        bob.say(str(languages.english(3)[random.randint(1, len(languages.english(3))-1)]))
+        bob.say(response)
         bob.runAndWait()
-        # Debug print
-        print("Farewell")
+        # Log vocal input for learning function
+        log(text, response, "Farewell")
         # Exit program
         exit()
 
@@ -76,7 +79,6 @@ def thinking(text):
         bob.runAndWait()
         input = listen()
         subroutineReturn = subsytemControl.controlTest(input)
-        print(subroutineReturn)
         bob.say(str(subroutineReturn))
         bob.runAndWait()
 
@@ -84,7 +86,9 @@ def thinking(text):
         print("Commands Exit")
 
     else:
-
+        response = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
         #You dun goofed
-        bob.say(str(languages.english(4)[random.randint(1, len(languages.english(4))-1)]))
+        bob.say(response)
         bob.runAndWait()
+        # Log vocal input for learning function
+        log(text, response, "Error")
