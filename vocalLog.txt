@@ -1,0 +1,54 @@
+User: hello
+Bob Greeting: how's life
+
+User: psycho
+Bob Error: can you repeat that please
+
+User: hello
+Bob Greeting: how's everything
+
+User: it's going well
+Bob Error: sorry I wasn't listening
+
+User: hello
+Bob Greeting: hi
+
+User: hello
+Bob Greeting: hey
+
+User: hello
+Bob Greeting: nice to see you
+
+User: nice to see you too
+Bob Error: could you repeat that again
+
+User: hello
+Bob Greeting: nice to see you
+
+User: hello
+Bob Greeting: hey
+
+User: hello
+Bob Greeting: how's everything
+
+User: it's going good
+Bob Error: sorry I wasn't listening
+
+User: hello
+Bob Greeting: hi
+
+User: hello
+Bob Greeting: how's your day
+
+User: it's going well how about you
+Bob Error: can you repeat that please
+
+User: hello Bob hello said hello Bob
+Bob Error: sorry I wasn't listening
+
+User: hello
+Bob Greeting: what's new
+
+User: not much you
+Bob Error: can you repeat that please
+

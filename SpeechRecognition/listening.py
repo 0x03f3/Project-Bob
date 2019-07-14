@@ -48,7 +48,7 @@ def thinking(text):
         # Log vocal input for learning function
         log(text, response, "Greeting")
         # Debug print
-        print("Greeting")
+        print("Greeting Finished")
 
     # Farewell
     elif str(text) in languages.english(3):
@@ -64,21 +64,27 @@ def thinking(text):
 
     # Command
     elif str(text) in languages.english(6):
-
+        # Ask if the user would like to list subroutines
         bob.say("Would you like to list all subroutines")
         bob.runAndWait()
+        # Take user response to subroutine list
         affirmation = listen()
+        # If yes then list subroutines
         if str(affirmation) in languages.english(7):
             bob.say(str(languages.english(5)))
             bob.runAndWait()
+        # If no then acknowledge and continue subroutine
         elif str(affirmation in languages.english(8)):
             bob.say("Okay")
             bob.runAndWait()
-        # Add
+        # Ask which subroutine to access
         bob.say("Which subroutine would you like to access")
         bob.runAndWait()
+        # Take user response
         input = listen()
+        # Execute the subroutine from /SpeechRecognition/Subsystems/subsytemControl.py
         subroutineReturn = subsytemControl.controlTest(input)
+        # Bob says the subroutine return
         bob.say(str(subroutineReturn))
         bob.runAndWait()
 
