@@ -10,7 +10,7 @@ from SpeechRecognition.Subsystems import subsytemControl
 bob = pyttsx3.init()
 
 def log(text, response, placement):
-    errorOutput = open("vocalLog.txt","a+")
+    errorOutput = open("SpeechRecognition/Logs/vocalLog.txt","a+")
     errorOutput.write( "User: " + text + "\n" + "Bob " + placement + ": " + response + "\n\n")
     errorOutput.close()
 
