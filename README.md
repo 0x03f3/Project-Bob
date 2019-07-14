@@ -59,7 +59,7 @@ For a visual example of him in action please see the potato quality video here:
 " target="_blank"><img src="http://img.youtube.com/vi/SO97TJRWmdA/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-## Facial Recognition
+## Facial Recognition:
 
 The facial recognition system is able to detect individuals and assign the probability of their names, alternatively it is able to recognize if the individual is unknown allowing for further learning and recognition of new people.
 
