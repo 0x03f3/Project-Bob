@@ -21,7 +21,7 @@ def listen():
     #Assign default microphone
     with sr.Microphone() as source:
         try:
-            print('Listening: ')
+            print('[+] Listening: ')
             # Capture the audio and translate it into text
             audio = r.listen(source)
             text = r.recognize_google(audio)
@@ -41,29 +41,33 @@ def thinking(text):
     # Greeting
     if str(text) in languages.english(1):
         # Assign responce for log()
+        print("[+] Greeting")
         response = str(languages.english(1)[random.randint(1,len(languages.english(1))-1)])
         # If a greeting is detected bob will respond in kind
         bob.say(response)
         bob.runAndWait()
         # Log vocal input for learning function
-        log(text, response, "Greeting")
+        log(text, response, "[+] Greeting")
         # Debug print
-        print("Greeting Finished")
+        print("[+] Greeting Finished")
 
     # Farewell
     elif str(text) in languages.english(3):
+        print("[+] Farewell")
         # Assign responce for log()
         response = str(languages.english(3)[random.randint(1, len(languages.english(3))-1)])
         # If a farewell is detected bob will respond in kind
         bob.say(response)
         bob.runAndWait()
         # Log vocal input for learning function
-        log(text, response, "Farewell")
+        log(text, response, "[+] Farewell")
+        print("[+] Farewell Finished")
         # Exit program
         exit()
 
     # Command
     elif str(text) in languages.english(6):
+        print("[+] Subroutine")
         # Ask if the user would like to list subroutines
         bob.say("Would you like to list all subroutines")
         bob.runAndWait()
@@ -89,12 +93,14 @@ def thinking(text):
         bob.runAndWait()
 
         # Debug print
-        print("Commands Exit")
+        print("[+] Subroutine Finished")
 
     else:
+        print("[+] Error")
         response = str(languages.english(4)[random.randint(1, len(languages.english(4))-1)])
         #You dun goofed
         bob.say(response)
         bob.runAndWait()
         # Log vocal input for learning function
         log(text, response, "Error")
+        print("[+] Error Finished")
